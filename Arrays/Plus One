@@ -1,0 +1,12 @@
+1.Approach ( Time - O(n), Space - O(1) in all cases except when extra 1 is required and needs to be added to new array space complexity will be O(n))   
+        int n =digits.length;
+        for(int i = n-1; i>=0; i--){
+            if(digits[i] < 9){
+                digits[i] = digits[i] + 1;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        int[] extraArr = new int [n+1] ;
+        extraArr[0] = 1;
+        return extraArr;
