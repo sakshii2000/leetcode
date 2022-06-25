@@ -1,0 +1,41 @@
+1. Brute force approach ( Time - O(n^3), Space - O(1))           
+        int n = nums.length;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i<n; i++){
+            for(int j = i; j<n; j++){
+                int sum = 0;
+                for(int k = i; k<=j; k++)
+                    sum = sum + nums[k];
+                max= Math.max(max, sum);
+            }
+            
+        }
+        return max;
+        
+        
+2. Brute force approach by adding sum in runtime ( Time - O(n^2), Space - O(1))   
+        int n = nums.length;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i<n; i++){
+            int sum = 0;
+            for(int j = i; j<n; j++){
+                sum = sum + nums[j];
+                max= Math.max(max, sum);
+            }
+            
+        }
+        return max;
+        
+        
+        
+3. Kadane's approach ( Time - O(n), Space - O(1))           
+        int n = nums.length;
+        
+        int currSum = 0;
+        int bestSum = Integer.MIN_VALUE;
+        
+        for(int i = 0; i<n; i++){
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            bestSum = Math.max(bestSum, currSum);
+        }
+        return bestSum;
